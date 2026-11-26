@@ -1,0 +1,84 @@
+\documentclass[10pt]{article}
+\usepackage[top=0.65in,bottom=0.73in,left=0.88in,right=0.88in]{geometry}
+\usepackage[cmex10]{amsmath}
+\usepackage[hidelinks]{hyperref}
+\DeclareFontShape{OMX}{cmex}{m}{n}{<->cmex10}{}
+\DeclareMathSizes{10}{10}{7}{7}
+\DeclareMathSizes{9}{10}{7}{7}
+\linespread{0.97}
+\title{Completing a fourteen-contact anchor in dimension five}
+\author{Achita Anantachina}
+\date{26 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We search for a 41-point kissing configuration in dimension five with
+a point incident to fourteen contacts. A published anchor admits an
+exact 37-point extension. We also give an integer test for mixed
+rational-direction and lifted anchor points and a finite exclusion for
+completion directions with coordinates bounded by two in absolute value.
+\end{abstract}
+
+\section{Construction and exact check}
+A kissing configuration in dimension five is a set of unit vectors with
+distinct-pair inner products at most \(1/2\). The record construction has
+40 points. An exact computer-assisted upper bound of 43 is given in
+Tomar's preprint. We take the fourteen integer directions from
+Nyam-Osor's Table~1 and normalize them to obtain a code \(Y\subset S^3\) with
+distinct-pair inner products at most \(1/3\). The pole \(e_5\) and the fourteen
+points \((\sqrt{3}y/2,1/2)\), for \(y\in Y\), make up the anchor. Each
+lift has inner product \(1/2\) with the pole, and two lifts have inner
+product \(1/4+3\langle y_i,y_j\rangle/4\le 1/2\).
+
+For two free integer directions \(a,b\), test \(4(a\cdot b)^2\le
+\|a\|^2\|b\|^2\) whenever the dot product is positive. The pole is checked
+by the same rule. For a lift from a four-dimensional integer direction
+\(v\) and a five-dimensional integer direction \(a\), set \(s=\|v\|^2\),
+\(n=\|a\|^2\), \(t=a_5\), and \(d=a_{1:4}\cdot v\). The constraint is
+\(\sqrt{3}d/\sqrt{s}\le\sqrt n-t\). Since the right side is
+nonnegative, \(d\le 0\) passes. For positive \(d\), squaring gives the
+equivalent condition
+\[
+s(n+t^2)-3d^2 \ge 2st\sqrt n.
+\]
+Compare the signs of these two sides before squaring again. The check
+therefore uses only integers, including on the boundary.
+
+The archived witness gives 22 integer completion directions, and an
+independent exact checker confirmed the resulting 37-point configuration.
+Its purpose is to certify an extension of the given anchor. The
+unrestricted lower bound remains 40.
+
+\section{Finite search}
+Enumerate all primitive, oriented integer directions \(a\) in
+\([-r,r]^5\) and keep those that satisfy the fifteen anchor constraints.
+Join surviving directions whenever their normalized points are
+compatible. A completion is a clique. Searching backwards through
+greedy independent colour classes bounds each branch by the number of
+classes remaining. This is an upper bound because a clique takes at most
+one vertex from each class.
+
+At \(r=1\), the graph has 79 vertices and 2,204 edges. It has clique
+number 11. At \(r=2\), it has 806 vertices and 221,136 edges. There is no
+clique of size 22. These computations respect the fixed anchor. The
+integer cube condition limits only the new directions.
+
+\section{Continuous search}
+We minimized a smooth maximum of the relevant dot products, then
+polished the candidate using constrained optimization. A second
+search also varied the fourteen horizontal directions while fixing
+their fifth coordinates. All candidate coordinates were rounded to
+integer directions and checked at threshold \(1/2\). The archived runs
+give no 41-point counterexample. Their numerical optima give no upper
+bound on what another start, anchor, or search can achieve.
+
+\paragraph{Sources.}
+\href{https://doi.org/10.1007/s00454-026-00841-x}{Cohn and Rajagopal,
+Variations on five-dimensional sphere packings (2026).}
+\href{https://www.mefyi.com/papers/kissing-numbers-five-seven/}{Tomar,
+The kissing numbers in dimensions five, six and seven are at most 43,
+76 and 132 (2026).}
+\href{https://zenodo.org/records/24014108}{Nyam-Osor, Table 1 in
+A three-point proof for the four-dimensional 14-point bound (2026).}
+The search and manuscript used AI assistance.
+\end{document}
